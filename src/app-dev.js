@@ -3,31 +3,37 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const app = express();
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser')
 
-//SETTINGS
+//CONFIGURACIONES
 app.set('PORT', process.env.PORT || 3000);
 
 //MIDDLEWARES
 app.use(morgan('dev'));
-//app.use(express.json);
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
 
-//ROUTES
+//RUTAS
 app.use('/api/status', require('./routes/main-routes.js'));
 
 //STATIC FILES
 app.use(express.static(path.join(__dirname, 'public')));
 
-//SERVER & DB
-const mongoose = require('mongoose');
+//SERVIDOR Y BASE DE DATOS
 mongoose.connect(process.env.MONG_URI)
     .then(()=> {
         app.listen(app.get('PORT'), () => {
-            console.log(`Server running on port ${app.get('PORT')}`)
+            console.log(`Servidor corriendo en el puerto: ${app.get('PORT')}`)
         });
     })
+    .then(db => console.log('Base de datos Conectada')
+    )
     .catch((error) => {
-        console.log(`Error: ${error}`);
+        console.log(`Error en la base de datos: ${error}`);
     })
 
-
-//ERROR HANDLER
+    //MANEJO DE ERRORES
+app.use((req, res, next) => {
+    res.status(404).log('404');
+});

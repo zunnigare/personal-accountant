@@ -1,7 +1,7 @@
 {
   "name": "personal-accountant",
   "version": "0.0.1",
-  "description": "simple MERN app for personal finances",
+  "description": "Apliclacion en MERN finanzas personales",
   "main": "app.js",
   "scripts": {
     "dev": "nodemon src/app-dev.js",

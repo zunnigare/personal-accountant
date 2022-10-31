@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 
 //RUTAS
-app.use('/api/status', require('./routes/main-routes.js'));
+app.use('/api/', require('./routes/main-api.js'));
 
 //STATIC FILES
 app.use(express.static(path.join(__dirname, 'public')));
@@ -23,6 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //SERVIDOR Y BASE DE DATOS
 mongoose.connect(process.env.MONG_URI)
     .then(()=> {
+        //primero conecta a la base de datos y después carga el programa, esto puede cambiar.
         app.listen(app.get('PORT'), () => {
             console.log(`Servidor corriendo en el puerto: ${app.get('PORT')}`)
         });
@@ -35,5 +36,5 @@ mongoose.connect(process.env.MONG_URI)
 
     //MANEJO DE ERRORES
 app.use((req, res, next) => {
-    res.status(404).log('404');
+    res.status(404);
 });

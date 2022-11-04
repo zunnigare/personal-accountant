@@ -37,5 +37,5 @@ mongoose.connect(process.env.MONG_URI)
     //MANEJO DE ERRORES
 app.use((req, res, next) => {
     res.status(404)
-    .catch(err)
+    .catch(err, ()=>{console.log(err);})
 });

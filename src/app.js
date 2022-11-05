@@ -9,3 +9,7 @@ const bodyParser = require('body-parser');
 app.set('PORT', process.env.PORT || 3000);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+//RUTAS
+//Rutas de API
+app.use('/api/', require('./routes/main-api.js'));

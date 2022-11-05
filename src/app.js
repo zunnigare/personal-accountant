@@ -13,3 +13,8 @@ app.use(bodyParser.json());
 //RUTAS
 //Rutas de API
 app.use('/api/', require('./routes/main-api.js'));
+
+//Rutas de navegación
+
+//Archivos Estaticos
+app.use(express.static(path.join(__dirname, 'public')));

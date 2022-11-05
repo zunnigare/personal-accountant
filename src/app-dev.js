@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //SERVIDOR Y BASE DE DATOS
 mongoose.connect(process.env.MONG_URI)
-    .then(()=> {
+    .then(() => {
         //primero conecta a la base de datos y después carga el programa, esto puede cambiar.
         app.listen(app.get('PORT'), () => {
             console.log(`Servidor corriendo en el puerto: ${app.get('PORT')}`)
@@ -34,8 +34,8 @@ mongoose.connect(process.env.MONG_URI)
         console.log(`Error en la base de datos: ${error}`);
     })
 
-    //MANEJO DE ERRORES
+//MANEJO DE ERRORES
 app.use((req, res, next) => {
     res.status(404)
-    .catch(err, ()=>{console.log(err);})
+        .catch(err, () => { console.log(err); })
 });

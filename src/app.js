@@ -16,5 +16,13 @@ app.use('/api/', require('./routes/main-api.js'));
 
 //Rutas de navegación
 
-//Archivos Estaticos
+//ARCHIVOS ESTÁTICOS
 app.use(express.static(path.join(__dirname, 'public')));
+
+//SERVIDOR IMPORTANTE NO MOVER
+
+//MANEJO DE ERRORES
+app.use((req, res, next) => {
+    res.status(404)
+        .catch(err, () => { console.log(err); })
+});

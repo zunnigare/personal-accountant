@@ -12,7 +12,7 @@ function Counter() {
     <div>
       <h1>contador: {counter}</h1>
       <button onClick={() => {
-        counter = counter + 10
+        setCounter (100);
       }}>
         sumar
       </button>

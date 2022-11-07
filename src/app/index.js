@@ -16,7 +16,9 @@ function Counter() {
       }}>
         SUMAR
       </button>
+      <App />
     </div>
+
   )
 }
 root.render(<StrictMode>

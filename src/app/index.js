@@ -5,7 +5,17 @@ import App from './App';
 
 //RootAPP
 const root = ReactDOM.createRoot(document.getElementById("app"));
-
+function Counter() {
+  let counter = 10
+  return(
+      <div>
+      <h1>contador: {counter}</h1>
+      <button>
+          sumar
+      </button>
+      </div>
+  )
+}
 root.render(<StrictMode>
-  <App />
+  <Counter />
 </StrictMode>);

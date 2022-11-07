@@ -14,7 +14,7 @@ function Counter() {
       <button onClick={() => {
         setCounter (counter +1);
       }}>
-        sumar
+        SUMAR
       </button>
     </div>
   )

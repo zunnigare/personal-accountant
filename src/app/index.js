@@ -6,7 +6,7 @@ import App from './App';
 //RootAPP
 const root = ReactDOM.createRoot(document.getElementById("app"));
 function Counter() {
-  const [ counter , setCounter ] = useState(0);
+  const [ counter , setCounter ] = useState(10);
 
   return (
     <div>

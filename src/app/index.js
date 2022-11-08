@@ -21,6 +21,7 @@ function Counter() {
 
   )
 }
-root.render(<StrictMode>
-  <Counter />
-</StrictMode>);
+root.render(
+  <StrictMode>
+    <Counter />
+  </StrictMode>);

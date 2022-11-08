@@ -4,9 +4,9 @@ const salario = require('../models/salario')
 
 //API salario
 router.get('/salario', async (req, res) => {
-     const ingresos = await salario.find();
-     console.log(ingresos);
-     res.json(ingresos)
+    const ingresos = await salario.find();
+    console.log(ingresos);
+    res.json(ingresos)
 });
 
 router.get('/salario/:id', async (req, res) => {
@@ -14,29 +14,29 @@ router.get('/salario/:id', async (req, res) => {
     res.json(consulta)
 });
 
-router.post('/salario', async (req, res) =>{
-    const  { valor, periodicidadDePago } = req.body;
+router.post('/salario', async (req, res) => {
+    const { valor, periodicidadDePago } = req.body;
     const salarioConfiguracion = new salario({
         valor,
         periodicidadDePago
     })
     await salarioConfiguracion.save();
-    res.json({status: 'Salario Guardado'})
+    res.json({ status: 'Salario Guardado' })
 });
 
 router.put('/salario/:id', async (req, res) => {
-    const  { valor, periodicidadDePago } = req.body;
+    const { valor, periodicidadDePago } = req.body;
     const nuevoSalario = {
         valor,
         periodicidadDePago
     }
     await salario.findByIdAndUpdate(req.params.id, nuevoSalario)
-    res.json({status: 'Salario actualizado'})
+    res.json({ status: 'Salario actualizado' })
 })
 
-router.delete('/salario/:id', async (req, res) =>{
+router.delete('/salario/:id', async (req, res) => {
     await salario.findByIdAndRemove(req.params.id);
-    res.json({status: 'Salario Eliminado'})
+    res.json({ status: 'Salario Eliminado' })
 });
 //Termina API Salario
 

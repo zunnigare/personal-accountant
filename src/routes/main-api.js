@@ -38,5 +38,7 @@ router.delete('/salario/:id', async (req, res) =>{
     await salario.findByIdAndRemove(req.params.id);
     res.json({status: 'Salario Eliminado'})
 });
+//Termina API Salario
+
 
 module.exports = router;

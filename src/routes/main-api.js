@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const salario = require('../models/salario')
 
+//API salario
 router.get('/salario', async (req, res) => {
      const ingresos = await salario.find();
      console.log(ingresos);

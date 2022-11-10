@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 //RUTAS
 //Rutas de API
-app.use('/api/', require('./routes/main-api.js'));
+app.use('/api/', require('./routes/api/main-api.js'));
 
 //Rutas de navegación
 

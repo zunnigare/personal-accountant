@@ -28,7 +28,7 @@ mongoose.connect(process.env.MONG_URI)
             console.log(`Servidor corriendo en el puerto: ${app.get('PORT')} servidor cargado correctamente.`);
         });
     })
-    .then(db => console.log('Base de datos Conectada')
+    .then(db => console.log('Base de datos Conectada.')
     )
     .catch((error) => {
         console.log(`Error en la base de datos: ${error}`);

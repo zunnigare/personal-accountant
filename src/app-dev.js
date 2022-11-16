@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-//const morgan = require('morgan');
+const morgan = require('morgan');
 const path = require('path');
 const app = express();
 const mongoose = require('mongoose');
@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 app.set('PORT', process.env.PORT || 3000);
 
 //MIDDLEWARES
-//app.use(morgan('dev'));
+app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 
@@ -21,11 +21,7 @@ app.use('/api/', require('./routes/api/main-api.js'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //SERVIDOR Y BASE DE DATOS
-mongoose.connect(process.env.MONG_URI|| "mongodb://localhost/cmx", { 
-  useNewUrlParser: true, 
-  useUnifiedTopology: true, 
-  useFindAndModify: false, 
-  useCreateIndex: true })
+mongoose.connect(process.env.MONG_URI)
     .then(() => {
         //primero conecta a la base de datos y después carga el programa, esto puede cambiar.
         app.listen(app.get('PORT'), () => {

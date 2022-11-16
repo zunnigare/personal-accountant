@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/app-dev.js",
     "tests": "node src/tests.js",
-    "start": "node src/app-dev.js",
+    "start": "node src/app.js",
     "webpack": "webpack --mode development --watch"
   },
   "repository": {
@@ -30,7 +30,7 @@
     "body-parser": "^1.20.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "mongoose": "^5.3.16"
+    "mongoose": "^6.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.19.6",

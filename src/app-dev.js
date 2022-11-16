@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 
 //RUTAS
-app.use('/api/', require('./routes/main-api.js'));
+app.use('/api/', require('./routes/api/main-api.js'));
 
 //STATIC FILES
 app.use(express.static(path.join(__dirname, 'public')));

@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 app.set('PORT', process.env.PORT || 3000);
 
 //MIDDLEWARES
-app.use(morgan('dev'));
+//app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 

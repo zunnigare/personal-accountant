@@ -21,7 +21,11 @@ app.use('/api/', require('./routes/main-api.js'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //SERVIDOR Y BASE DE DATOS
-mongoose.connect(process.env.MONG_URI)
+mongoose.connect(process.env.MONG_URI|| "mongodb://localhost/cmx", { 
+  useNewUrlParser: true, 
+  useUnifiedTopology: true, 
+  useFindAndModify: false, 
+  useCreateIndex: true })
     .then(() => {
         //primero conecta a la base de datos y después carga el programa, esto puede cambiar.
         app.listen(app.get('PORT'), () => {

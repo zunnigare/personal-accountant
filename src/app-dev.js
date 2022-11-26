@@ -6,6 +6,8 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+console.log('Hola mundo');
+
 //CONFIGURACIONES
 app.set('PORT', process.env.PORT || 3000);
 

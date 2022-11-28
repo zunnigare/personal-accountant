@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //SERVIDOR Y BASE DE DATOS
 mongoose.connect(process.env.MONG_URI)
     .then(() => {
-        //primero conecta a la base de datos y después carga el programa, esto puede cambiar.
+        //primero conecta a la base de datos y después lista el servidor, esto puede cambiar.
         app.listen(app.get('PORT'), () => {
             console.log(`Servidor corriendo en el puerto: ${app.get('PORT')} servidor cargado correctamente.`);
         });

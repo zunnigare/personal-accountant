@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const salario = require('../../models/salario')
+const salario = require('../../models/salario');
 
 //API salario
 router.get('/salario', async (req, res) => {

@@ -9,6 +9,7 @@ router.get('/salario', async (req, res) => {
     res.json(ingresos)
 });
 
+
 router.get('/salario/:id', async (req, res) => {
     const consulta = await salario.findById(req.params.id);
     res.json(consulta)

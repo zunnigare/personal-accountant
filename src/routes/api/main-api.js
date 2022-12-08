@@ -19,7 +19,7 @@ router.post('/salario', async (req, res) => {
     const { valor, periodicidadDePago } = req.body;
     const salarioConfiguracion = new salario({
         valor,
-        periodicidadDePago
+        periodicidadDePag
     })
     await salarioConfiguracion.save();
     res.json({ status: 'Salario Guardado' })

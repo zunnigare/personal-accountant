@@ -29,7 +29,7 @@ router.put('/salario/:id', async (req, res) => {
     const { valor, periodicidadDePago } = req.body;
     const nuevoSalario = {
         valor,
-        periodicidadDePagos
+        periodicidadDePago
     }
     await salario.findByIdAndUpdate(req.params.id, nuevoSalario)
     res.json({ status: 'Salario actualizado' })
